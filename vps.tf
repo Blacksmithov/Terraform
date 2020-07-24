@@ -14,8 +14,8 @@ variable "git_branch" {
    default = "DigitalOceanDroplet"
 }
 # переменные для доступа к репозиторию
-variable "gitlab_username" {}
-variable "gitlab_password" {}
+variable "git_username" {}
+variable "git_password" {}
 
 #путь к файлу. который необходимо загрузить на удаленный сервер. Если не нужно - удалить
 variable "copy_key" {
@@ -62,7 +62,7 @@ resource "digitalocean_droplet" "new_server" {
   
    provisioner "remote-exec" {
      inline = [
-       "sudo yum -y install git && sudo yum -y install epel-release && sudo yum -y install ansible && git clone --branch ${var.git_branch} https://${var.gitlab_username}:${var.gitlab_password}@${var.git_ssh} && yum install -y mc && git config --global user.name Blacksmithov && git config --global user.email maxk@bk.ru && sudo yum -y install wget unzip && wget https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip && sudo unzip ./terraform_0.12.24_linux_amd64.zip -d /usr/local/bin/"	 	   
+       "sudo yum -y install git && sudo yum -y install epel-release && sudo yum -y install ansible && git clone --branch ${var.git_branch} https://${var.git_username}:${var.git_password}@${var.git_ssh} && yum install -y mc && git config --global user.name Blacksmithov && git config --global user.email maxk@bk.ru && sudo yum -y install wget unzip && wget https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip && sudo unzip ./terraform_0.12.24_linux_amd64.zip -d /usr/local/bin/"	 	   
      ]
 
      connection {
