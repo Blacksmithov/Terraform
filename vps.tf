@@ -6,12 +6,12 @@ variable "devs" {
 
 #путь репозитория, который необходимо загрузить на сервер. Если в этом нет необходимости - удалите ссылки
 variable "git_ssh" {
-   default = "gitlab.rebrainme.com/maxk_at_bk_ru/ansible.git"
+   default = "github.com/Blacksmithov/Terraform"
 }
 
 #имя ветки, которую необходимо загрузить
 variable "git_branch" {
-   default = "OPS23"
+   default = "DigitalOceanDroplet"
 }
 # переменные для доступа к репозиторию
 variable "gitlab_username" {}
