@@ -1,0 +1,9 @@
+*.tfvars
+*.tfstate**
+.terraform/*
+vps.psw
+configs/*
+start.cmd
+stop.cmd
+putty.cmd
+.scripts/*
